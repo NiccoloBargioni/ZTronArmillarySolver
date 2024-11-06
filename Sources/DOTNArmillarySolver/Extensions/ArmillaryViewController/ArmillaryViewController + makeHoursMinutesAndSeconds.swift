@@ -12,7 +12,7 @@ extension ArmillaryViewController {
         let hoursMirrorGeometry = SCNSphere(radius: mirrorRadius)
         let hoursMirrorNode = SCNNode(geometry: hoursMirrorGeometry)
         hoursMirrorNode.localTranslate(by: SCNVector3(x: -0.5, y: 0, z: sqrt(3)/2.0))
-        hoursMirrorGeometry.firstMaterial?.diffuse.contents = UIImage(named: "blueTexture")
+        hoursMirrorGeometry.firstMaterial?.diffuse.contents = UIImage(named: "blueTexture", in: .module, with: nil)
         hoursNode.addChildNode(hoursMirrorNode)
 
         hoursNode.simdOrientation = simd_quatf(angle: Float.pi/2.0, axis: SIMD3<Float>(-1, 0, 0))
@@ -26,7 +26,7 @@ extension ArmillaryViewController {
         let minutesMirrorGeometry = SCNSphere(radius: mirrorRadius)
         let minutesMirrorNode = SCNNode(geometry: minutesMirrorGeometry)
         minutesMirrorNode.localTranslate(by: SCNVector3(x: 1.1, y: 0, z: 0))
-        minutesMirrorGeometry.firstMaterial?.diffuse.contents = UIImage(named: "greenTexture")
+        minutesMirrorGeometry.firstMaterial?.diffuse.contents = UIImage(named: "greenTexture", in: .module, with: nil)
         minutesNode.addChildNode(minutesMirrorNode)
 
         let secondsNode = createCircleNode(radius: 1.2)
@@ -35,7 +35,7 @@ extension ArmillaryViewController {
         let secondsMirrorGeometry = SCNSphere(radius: mirrorRadius)
         let secondsMirrorNode = SCNNode(geometry: secondsMirrorGeometry)
         secondsMirrorNode.localTranslate(by: SCNVector3(x: 0.0, y: 0, z: 1.2))
-        secondsMirrorGeometry.firstMaterial?.diffuse.contents = UIImage(named: "redTexture")
+        secondsMirrorGeometry.firstMaterial?.diffuse.contents = UIImage(named: "redTexture", in: .module, with: nil)
         secondsNode.addChildNode(secondsMirrorNode)
 
         secondsNode.simdOrientation = simd_quatf(angle: Float.pi/2.0, axis: SIMD3<Float>(-1, 0, 0))
@@ -93,7 +93,7 @@ extension ArmillaryViewController {
         if radius <= 1.2 {
             circleNode.geometry?.firstMaterial?.diffuse.contents = UIColor(red: 27.0/255.0, green: 63.0/255.0, blue: 72.0/255.0, alpha: 1.0)
         } else {
-            circleNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "iron")
+            circleNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "iron", in: .module, with: nil)
         }
         return circleNode
     }

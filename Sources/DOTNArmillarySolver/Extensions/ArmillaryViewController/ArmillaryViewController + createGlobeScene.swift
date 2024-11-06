@@ -18,12 +18,12 @@ extension ArmillaryViewController {
         let globeNode = createGlobeNode()
         globeNode.name = "globe"
 
-        guard let url = Bundle.main.url(
+        guard let url = Bundle.module.url(
          forResource: "uploads_files_4779603_DIAMOND",
          withExtension: "usdz",
          subdirectory: "assets.scnassets"
         )
-             else { fatalError("Failed to find model file.") }
+        else { fatalError("Failed to find model file.") }
 
         let diamondModel = MDLAsset(url: url)
         diamondModel.loadTextures()

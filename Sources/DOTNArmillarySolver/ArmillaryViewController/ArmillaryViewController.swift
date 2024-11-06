@@ -49,7 +49,7 @@ class ArmillaryViewController: UIViewController {
         
         let wallView = UIView()
         
-        wallView.backgroundColor = UIColor(patternImage: UIImage(named: "brick")!)
+        wallView.backgroundColor = UIColor(patternImage: UIImage(named: "brick", in: .module, with: nil)!)
         self.view.addSubview(wallView)
         
         wallView.snp.makeConstraints { make in
