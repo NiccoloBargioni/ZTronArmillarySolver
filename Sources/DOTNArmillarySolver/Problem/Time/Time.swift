@@ -129,32 +129,8 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
         return self
     }
 
-    public static func == (_ lhs: Time, _ rhs: Time) -> Bool {
-        
-        print("\(#function)(lhs: \(lhs), rhs: \(rhs))")
+    nonisolated public static func == (_ lhs: Time, _ rhs: Time) -> Bool {
         guard lhs !== rhs else { return true }
-
-        lhs.hoursLock.wait()
-        rhs.hoursLock.wait()
-        
-        lhs.minutesLock.wait()
-        rhs.minutesLock.wait()
-        
-        lhs.secondsLock.wait()
-        rhs.secondsLock.wait()
-        
-        defer {
-            rhs.secondsLock.signal()
-            lhs.secondsLock.signal()
-            
-            rhs.minutesLock.signal()
-            lhs.minutesLock.signal()
-            
-            rhs.hoursLock.signal()
-            lhs.hoursLock.signal()
-        }
-        
-        print("End of \(#function)")
         return lhs.hour == rhs.hour && lhs.minute == rhs.minute && lhs.second == rhs.second
     }
 
