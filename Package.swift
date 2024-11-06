@@ -32,6 +32,9 @@ let package = Package(
                 .product(name: "ZTronCarouselCore", package: "ZTronCarouselCore"),
                 .product(name: "LazyViewSwiftUI", package: "Lazy-View-SwiftUI"),
             ],
+            resources: [
+                .process("Resources")
+            ],
             swiftSettings: [
                 .enableExperimentalFeature("StrictConcurrency=complete")
             ]
