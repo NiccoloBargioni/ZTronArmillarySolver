@@ -27,6 +27,8 @@ public struct ArmillarySolverView: View {
     @State private var sceneSize: CGSize = .zero
     @StateObject private var atlasModel = AtlasProblemModel(currentTime: Time(hour: 8, minute: 45, second: 35))
 
+    
+    public init() { }
 
     public var body: some View {
         LazyViewSwiftUI.LazyView(
