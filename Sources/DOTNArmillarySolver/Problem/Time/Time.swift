@@ -9,53 +9,9 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
     let secondsLock: DispatchSemaphore = .init(value: 1)
     let descriptionLock: DispatchSemaphore = .init(value: 1)
 
-    @Published private var hour: Int {
-        didSet {
-            print(#function)
-            self.descriptionLock.wait()
-            self.minutesLock.wait()
-            self.secondsLock.wait()
-            
-            self.description = "\(hour):\(minute):\(second)"
-            
-            self.secondsLock.signal()
-            self.minutesLock.signal()
-            self.descriptionLock.signal()
-            print("End of \(#function)")
-        }
-    }
-
-    @Published private var minute: Int {
-        didSet {
-            print(#function)
-            self.descriptionLock.wait()
-            self.hoursLock.wait()
-            self.secondsLock.wait()
-            
-            self.description = "\(hour):\(minute):\(second)"
-            
-            self.secondsLock.signal()
-            self.hoursLock.signal()
-            self.descriptionLock.signal()
-            print("End of \(#function)")
-        }
-    }
-
-    @Published private var second: Int {
-        didSet {
-            print(#function)
-            self.descriptionLock.wait()
-            self.hoursLock.wait()
-            self.minutesLock.wait()
-            
-            self.description = "\(hour):\(minute):\(second)"
-            
-            self.minutesLock.signal()
-            self.hoursLock.signal()
-            self.descriptionLock.signal()
-            print("End of \(#function)")
-        }
-    }
+    @Published private var hour: Int
+    @Published private var minute: Int
+    @Published private var second: Int
 
     init(hour: Int, minute: Int, second: Int) {
         print(#function)
@@ -122,6 +78,8 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
         self.hoursLock.wait()
         self.hour = hour
         self.hoursLock.signal()
+        
+        self.updateDescription()
         print("End of \(#function)")
     }
 
@@ -131,6 +89,8 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
         self.minutesLock.wait()
         self.minute = minute
         self.minutesLock.signal()
+        
+        self.updateDescription()
         print("End of \(#function)")
     }
 
@@ -140,6 +100,8 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
         self.secondsLock.wait()
         self.second = second
         self.secondsLock.signal()
+        
+        self.updateDescription()
         print("End of \(#function)")
     }
 
@@ -161,6 +123,8 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
         self.second = (self.second + seconds + 60) % 60
         self.secondsLock.signal()
 
+        self.updateDescription()
+        
         print("End of \(#function)")
         return self
     }
@@ -220,5 +184,19 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
         
         print("End of \(#function)")
         return ImmutableTime(hour: self.hour, minute: self.minute, second: self.second)
+    }
+    
+    private final func updateDescription() -> Void {
+        self.descriptionLock.wait()
+        self.secondsLock.wait()
+        self.minutesLock.wait()
+        self.hoursLock.wait()
+                
+        self.description = "\(hour):\(minute):\(second)"
+
+        self.hoursLock.signal()
+        self.minutesLock.signal()
+        self.secondsLock.signal()
+        self.hoursLock.signal()
     }
 }
