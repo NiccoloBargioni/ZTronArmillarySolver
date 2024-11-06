@@ -19,7 +19,7 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
             
             self.secondsLock.signal()
             self.minutesLock.signal()
-            self.descriptionLock.wait()
+            self.descriptionLock.signal()
         }
     }
 
@@ -33,7 +33,7 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
             
             self.secondsLock.signal()
             self.hoursLock.signal()
-            self.descriptionLock.wait()
+            self.descriptionLock.signal()
         }
     }
 
@@ -47,7 +47,7 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
             
             self.minutesLock.signal()
             self.hoursLock.signal()
-            self.descriptionLock.wait()
+            self.descriptionLock.signal()
         }
     }
 
@@ -61,7 +61,13 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
     }
 
     convenience init(copy: Time) {
+        copy.hoursLock.wait()
+        copy.minutesLock.wait()
+        copy.secondsLock.wait()
         self.init(hour: copy.hour, minute: copy.minute, second: copy.second)
+        copy.secondsLock.signal()
+        copy.minutesLock.signal()
+        copy.hoursLock.signal()
     }
     
     func getHour() -> Int {
