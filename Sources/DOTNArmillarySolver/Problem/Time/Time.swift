@@ -176,6 +176,6 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
         self.hoursLock.signal()
         self.minutesLock.signal()
         self.secondsLock.signal()
-        self.hoursLock.signal()
+        self.descriptionLock.signal()
     }
 }
