@@ -1,8 +1,8 @@
 @preconcurrency import SwiftUI
 
 @MainActor
-final class OrientationInfo: ObservableObject {
-    enum Orientation {
+public final class OrientationInfo: ObservableObject {
+    public enum Orientation {
         case portrait
         case landscape
     }
@@ -11,7 +11,7 @@ final class OrientationInfo: ObservableObject {
 
     private var _observer: NSObjectProtocol?
 
-    init() {
+    public init() {
         // fairly arbitrary starting value for 'flat' orientations
         if UIDevice.current.orientation.isLandscape {
             self.orientation = .landscape
