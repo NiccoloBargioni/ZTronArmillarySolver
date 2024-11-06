@@ -20,8 +20,7 @@ extension ArmillaryViewController {
 
         guard let url = Bundle.module.url(
          forResource: "uploads_files_4779603_DIAMOND",
-         withExtension: "usdz",
-         subdirectory: "Resources/assets.scnassets"
+         withExtension: "usdz"
         )
         else { fatalError("Failed to find model file.") }
 
