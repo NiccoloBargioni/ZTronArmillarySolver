@@ -1,9 +1,9 @@
 import Foundation
 
-final class ImmutableTime: AnyTime {
-    private var hour: Int
-    private var minute: Int
-    private var second: Int
+final class ImmutableTime: AnyTime, Sendable {
+    private let hour: Int
+    private let minute: Int
+    private let second: Int
 
     init(hour: Int, minute: Int, second: Int) {
         self.hour = hour

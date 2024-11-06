@@ -109,9 +109,9 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
 
     func setMinute(_ minute: Int) {
         assert(minute >= 0 && minute < 60)
-        self.hoursLock.wait()
+        self.minutesLock.wait()
         self.minute = minute
-        self.hoursLock.signal()
+        self.minutesLock.signal()
     }
 
     func setSecond(_ second: Int) {
