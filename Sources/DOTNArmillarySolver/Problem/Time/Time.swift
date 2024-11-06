@@ -130,7 +130,10 @@ final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecke
     }
 
     public static func == (_ lhs: Time, _ rhs: Time) -> Bool {
+        
         print("\(#function)(lhs: \(lhs), rhs: \(rhs))")
+        guard lhs !== rhs else { return true }
+
         lhs.hoursLock.wait()
         rhs.hoursLock.wait()
         
