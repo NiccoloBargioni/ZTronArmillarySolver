@@ -1,0 +1,96 @@
+{
+  "originHash" : "470b8f26463d5f43bfa4ab9cf6be478715d3c98e5c403f3b6ba2ec0513ba102c",
+  "pins" : [
+    {
+      "identity" : "bottomsheet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lucaszischka/BottomSheet",
+      "state" : {
+        "branch" : "main",
+        "revision" : "82b93be2d2b989f5be4adc702f8bcd94882bd101"
+      }
+    },
+    {
+      "identity" : "isvimagescrollview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yuriiik/ISVImageScrollView",
+      "state" : {
+        "branch" : "master",
+        "revision" : "1202f148508c5498e0d8948b803083e2a091de82"
+      }
+    },
+    {
+      "identity" : "lazy-view-swiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/joehinkle11/Lazy-View-SwiftUI",
+      "state" : {
+        "branch" : "master",
+        "revision" : "0f838ed8eb0beb3faab35aae225f2545a1dd5338"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "3b5120fa082a847059bc0ca02f99561d6be25c5d"
+      }
+    },
+    {
+      "identity" : "swiftgraph",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NickTheFreak97/SwiftGraph",
+      "state" : {
+        "branch" : "msa",
+        "revision" : "a00fc9e042d0afff473ef73ea0dc8cd80eca1b28"
+      }
+    },
+    {
+      "identity" : "swiftuijoystick",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/michael94ellis/SwiftUIJoystick",
+      "state" : {
+        "branch" : "main",
+        "revision" : "90f703dc9d4946e89f86330e036b263b8bbb5885"
+      }
+    },
+    {
+      "identity" : "ztroncarouselcore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NiccoloBargioni/ZTronCarouselCore",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ef654b20ba8052e9eb52821a2513529031f2d7aa"
+      }
+    },
+    {
+      "identity" : "ztronobservation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NiccoloBargioni/ZTronObservation",
+      "state" : {
+        "branch" : "main",
+        "revision" : "23df954c27f5ea4608aa57b264a95fc02dc8a0d8"
+      }
+    },
+    {
+      "identity" : "ztronproblemsolver",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NiccoloBargioni/ZTronProblemSolver",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0f1f7aaa76e0456926fafe9f995c245e529286b8"
+      }
+    },
+    {
+      "identity" : "ztronvideoplayer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NiccoloBargioni/ZTronVideoPlayer",
+      "state" : {
+        "branch" : "main",
+        "revision" : "267f2cbea40241878b205a21df05c80f098bd1de"
+      }
+    }
+  ],
+  "version" : 3
+}
