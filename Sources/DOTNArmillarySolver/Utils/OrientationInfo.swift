@@ -7,7 +7,7 @@ public final class OrientationInfo: ObservableObject {
         case landscape
     }
 
-    @Published var orientation: Orientation
+    @Published private(set) public var orientation: Orientation
 
     private var _observer: NSObjectProtocol?
 
