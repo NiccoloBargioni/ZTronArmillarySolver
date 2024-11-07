@@ -1,5 +1,5 @@
 {
-  "originHash" : "470b8f26463d5f43bfa4ab9cf6be478715d3c98e5c403f3b6ba2ec0513ba102c",
+  "originHash" : "2d88c6cf4c17d053c490139e63fcbbcbe581b0832c05e8300d116a8d9cc40703",
   "pins" : [
     {
       "identity" : "bottomsheet",
@@ -38,15 +38,6 @@
       }
     },
     {
-      "identity" : "swiftgraph",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/NickTheFreak97/SwiftGraph",
-      "state" : {
-        "branch" : "msa",
-        "revision" : "a00fc9e042d0afff473ef73ea0dc8cd80eca1b28"
-      }
-    },
-    {
       "identity" : "swiftuijoystick",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/michael94ellis/SwiftUIJoystick",
@@ -61,16 +52,7 @@
       "location" : "https://github.com/NiccoloBargioni/ZTronCarouselCore",
       "state" : {
         "branch" : "main",
-        "revision" : "ef654b20ba8052e9eb52821a2513529031f2d7aa"
-      }
-    },
-    {
-      "identity" : "ztronobservation",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/NiccoloBargioni/ZTronObservation",
-      "state" : {
-        "branch" : "main",
-        "revision" : "23df954c27f5ea4608aa57b264a95fc02dc8a0d8"
+        "revision" : "66b3f70fb28272623e3c9a7667827fe73612ac4d"
       }
     },
     {

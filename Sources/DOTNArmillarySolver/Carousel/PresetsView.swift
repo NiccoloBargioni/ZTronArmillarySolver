@@ -8,12 +8,12 @@ internal struct PresetsCarousel: UIViewControllerRepresentable {
             rootViewController: Carousel16_9Page(
                     with: BasicMediaFactory(),
                     medias: [
-                        ZTronImageDescriptor(assetName: "8.45.35"),
-                        ZTronImageDescriptor(assetName: "9.35.30"),
-                        ZTronImageDescriptor(assetName: "9.45.45"),
-                        ZTronImageDescriptor(assetName: "11.25.35"),
-                        ZTronImageDescriptor(assetName: "11.45.40"),
-                        ZTronImageDescriptor(assetName: "12.25.45"),
+                        ZTronImageDescriptor(assetName: "8.45.35", in: .module),
+                        ZTronImageDescriptor(assetName: "9.35.30", in: .module),
+                        ZTronImageDescriptor(assetName: "9.45.45", in: .module),
+                        ZTronImageDescriptor(assetName: "11.25.35", in: .module),
+                        ZTronImageDescriptor(assetName: "11.45.40", in: .module),
+                        ZTronImageDescriptor(assetName: "12.25.45", in: .module),
                     ]
                 )
         )
