@@ -68,7 +68,13 @@ extension ArmillaryViewController {
             targetAngleForHour = 0
         }
 
-        let action = SCNAction.rotateTo(x: -targetAngleForHour.toRadians(), y: 0, z: 0, duration: 0.25)
+        let action = SCNAction.rotateTo(
+            x: -targetAngleForHour.toRadians(),
+            y: 0,
+            z: 0,
+            duration: 0.25
+        )
+        
         hours.runAction(action) { @Sendable in
             let hour = targetHour
             Task(priority: .userInitiated) { @MainActor in
@@ -95,9 +101,10 @@ extension ArmillaryViewController {
             duration: 0.25
         )
 
-        minutes.runAction(action) {
+        minutes.runAction(action) { @Sendable in
+            let minute = targetMinute
             Task(priority: .userInitiated) { @MainActor in
-                self.currentTime.wrappedValue.setMinute(targetMinute)
+                self.currentTime.wrappedValue.setMinute(minute)
             }
         }
     }
@@ -124,9 +131,10 @@ extension ArmillaryViewController {
             duration: 0.25
         )
 
-        seconds.runAction(action) {
+        seconds.runAction(action) { @Sendable in
+            let second = targetSecond
             Task(priority: .userInitiated) { @MainActor in
-                self.currentTime.wrappedValue.setSecond(targetSecond)
+                self.currentTime.wrappedValue.setSecond(second)
             }
         }
     }
