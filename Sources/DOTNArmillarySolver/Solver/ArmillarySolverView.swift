@@ -22,6 +22,8 @@ public struct ArmillarySolverView: View {
     @State private var onOTapped: (() -> Void)?
     @State private var onTTapped: (() -> Void)?
     
+    @State private var preset: [Int] = [0, 0, 0]
+    
     @State private var solutionSheetPosition: BottomSheetPosition = .hidden
 
     @State private var sceneSize: CGSize = .zero
@@ -192,8 +194,44 @@ public struct ArmillarySolverView: View {
                 
                 
                 VStack(alignment: .leading) {
-                    PresetsCarousel()
-                        .id("presets")
+                    PresetsCarousel { page, _ in
+                        switch page {
+                            case "8.45.35":
+                                self.preset = [5, -5, 6]
+                                
+                            case "9.35.30":
+                                self.preset = [6, -5, 5]
+                                
+                            case "9.45.45":
+                                self.preset = [5, 6, -5]
+                                
+                            case "11.25.35":
+                                self.preset = [-5, 6, 5]
+                                
+                            case "11.45.40":
+                                self.preset = [6, 5, -5]
+                                
+                            case "12.25.45":
+                                self.preset = [-5, 5, 6]
+                                
+                            default:
+                                break
+                        }
+                    }
+                    .overlay(alignment: .bottom) {
+                        HStack(alignment: .bottom, spacing: 0) {
+                            ForEach(self.preset, id: \.hashValue) { presetElement in
+                                Text(presetElement)
+                                    .font(.title.weight(.bold))
+                                    .layoutPriority(1)
+                            }
+                        }
+                    }
+                    .id("presets")
+                    
+                    HStack(alignment: .top, spacing: 0) {
+                        
+                    }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .tabItem {

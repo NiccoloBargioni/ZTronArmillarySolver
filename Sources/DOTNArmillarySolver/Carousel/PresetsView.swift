@@ -2,6 +2,11 @@ import SwiftUI
 import ZTronCarouselCore
 
 internal struct PresetsCarousel: UIViewControllerRepresentable {
+    private var onPageChanged: (String, Int) -> Void
+    
+    public init(onPageChanged: @escaping (String, Int) -> Void) {
+        self.onPageChanged = onPageChanged
+    }
     
     func makeUIViewController(context: Context) -> UINavigationController {
         let navController = UINavigationController(
@@ -14,7 +19,8 @@ internal struct PresetsCarousel: UIViewControllerRepresentable {
                         ZTronImageDescriptor(assetName: "11.25.35", in: .module),
                         ZTronImageDescriptor(assetName: "11.45.40", in: .module),
                         ZTronImageDescriptor(assetName: "12.25.45", in: .module),
-                    ]
+                    ],
+                    onPageChanged: onPageChanged
                 )
         )
         
