@@ -223,9 +223,10 @@ public struct ArmillarySolverView: View {
                             ForEach(self.preset, id: \.hashValue) { presetElement in
                                 Text("\(presetElement)")
                                     .font(.title.weight(.bold))
-                                    .layoutPriority(1)
+                                    .frame(maxWidth: .infinity, alignment: .center)
                             }
                         }
+                        .frame(maxWidth: .infinity)
                     }
                     .id("presets")
                     
