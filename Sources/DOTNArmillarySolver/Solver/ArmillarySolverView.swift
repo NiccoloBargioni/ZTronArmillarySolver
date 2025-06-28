@@ -221,7 +221,7 @@ public struct ArmillarySolverView: View {
                     .overlay(alignment: .bottom) {
                         HStack(alignment: .bottom, spacing: 0) {
                             ForEach(self.preset, id: \.hashValue) { presetElement in
-                                Text(presetElement)
+                                Text("\(presetElement)")
                                     .font(.title.weight(.bold))
                                     .layoutPriority(1)
                             }
