@@ -13,7 +13,7 @@ public final class Time: Hashable, CustomStringConvertible, ObservableObject, @u
     @Published private var minute: Int
     @Published private var second: Int
 
-    init(hour: Int, minute: Int, second: Int) {
+    public init(hour: Int, minute: Int, second: Int) {
         assert(hour >= 0 && minute >= 0 && second >= 0)
         self.hour = hour
         self.minute = minute
