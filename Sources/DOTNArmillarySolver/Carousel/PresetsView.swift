@@ -2,9 +2,9 @@ import SwiftUI
 import ZTronCarouselCore
 
 public struct PresetsCarousel: UIViewControllerRepresentable {
-    private var onPageChanged: (String, Int) -> Void
+    private var onPageChanged: @MainActor (String, Int) -> Void
     
-    public init(onPageChanged: @escaping (String, Int) -> Void) {
+    public init(onPageChanged: @escaping @MainActor (String, Int) -> Void) {
         self.onPageChanged = onPageChanged
     }
     
