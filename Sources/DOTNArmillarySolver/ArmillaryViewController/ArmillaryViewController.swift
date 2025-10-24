@@ -59,13 +59,11 @@ class ArmillaryViewController: UIViewController {
             make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left)
         }
 
-        self.sceneSize.wrappedValue = CGSize(width: view.bounds.size.width, height: view.bounds.size.height*0.45)
-
         let sceneView = SCNView()
         sceneView.backgroundColor = .clear
         sceneView.scene = createGlobeScene()
-        sceneView.allowsCameraControl = false // Allow user interaction with the camera
-        sceneView.autoenablesDefaultLighting = true // Enable default lighting
+        sceneView.allowsCameraControl = false
+        sceneView.autoenablesDefaultLighting = true
 
         self.view.addSubview(sceneView)
                 
@@ -77,7 +75,7 @@ class ArmillaryViewController: UIViewController {
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right)
             make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left)
-            make.height.equalTo(self.view.bounds.size.height*0.4)
+            make.height.equalTo(self.view.safeAreaLayoutGuide.snp.height).multipliedBy(0.45)
         }
 
         self.scene = sceneView.scene!
@@ -133,6 +131,18 @@ class ArmillaryViewController: UIViewController {
 
         coordinator.animate(alongsideTransition: nil) { _ in
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    override public func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        Task(priority: .userInitiated) {
+            self.sceneSize.wrappedValue = CGSize(
+                width: self.sceneView?.bounds.size.width ?? self.view.bounds.size.width,
+                height: self.sceneView?.bounds.size.height ?? self.view.bounds.size.height * 0.45
+
+            )
+            
         }
     }
 

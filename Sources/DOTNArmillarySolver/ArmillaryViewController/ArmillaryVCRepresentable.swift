@@ -13,7 +13,7 @@ struct ArmillaryVCRepresentable: UIViewControllerRepresentable {
 
     init(
         currentTime: Binding<Time>,
-        sceneSize: Binding<CGSize>,
+        sceneSize: Binding<CGSize> = .constant(.zero),
         onAngleChanged: Binding<((CGFloat) -> Void)?>,
         onThumbReleased: Binding<(() -> Void)?>,
         onXTapped: Binding<(() -> Void)?>,

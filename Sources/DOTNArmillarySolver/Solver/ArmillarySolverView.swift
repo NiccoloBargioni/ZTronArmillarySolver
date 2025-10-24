@@ -32,14 +32,13 @@ public struct DOTNSolverView: View {
             VStack(alignment: .leading, spacing: 0) {
                 ArmillaryVCRepresentable(
                     currentTime: self.$atlasModel.currentTime,
-                    sceneSize: self.$sceneSize,
                     onAngleChanged: self.$onAngleChanged,
                     onThumbReleased: self.$onThumbReleased,
                     onXTapped: self.$onXTapped,
                     onOTapped: self.$onOTapped,
                     onTTapped: self.$onTTapped
                 )
-                .frame(width: geo.size.width, height: sceneSize.height)
+                .frame(width: geo.size.width, height: geo.size.height * 0.45)
 
                 ScrollViewReader { scrollViewProxy in
                     ScrollView(.vertical, showsIndicators: false) {
