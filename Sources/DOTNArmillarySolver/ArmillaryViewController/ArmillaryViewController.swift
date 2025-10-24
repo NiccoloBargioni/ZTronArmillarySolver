@@ -75,7 +75,7 @@ class ArmillaryViewController: UIViewController {
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right)
             make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left)
-            make.height.equalTo(self.view.safeAreaLayoutGuide.snp.height).multipliedBy(0.45)
+            make.height.equalTo(self.view.safeAreaLayoutGuide.snp.height)
         }
 
         self.scene = sceneView.scene!
@@ -121,7 +121,7 @@ class ArmillaryViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
 
-        self.sceneSize.wrappedValue = CGSize(width: size.width, height: size.height*0.45)
+        self.sceneSize.wrappedValue = CGSize(width: size.width, height: size.height)
         self.sceneView?.snp.remakeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right)
@@ -139,7 +139,7 @@ class ArmillaryViewController: UIViewController {
         Task(priority: .userInitiated) {
             self.sceneSize.wrappedValue = CGSize(
                 width: self.sceneView?.bounds.size.width ?? self.view.bounds.size.width,
-                height: self.sceneView?.bounds.size.height ?? self.view.bounds.size.height * 0.45
+                height: self.sceneView?.bounds.size.height ?? self.view.bounds.size.height
 
             )
             
