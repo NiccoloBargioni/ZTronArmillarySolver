@@ -3,14 +3,14 @@ import Foundation
 import os
 import Combine
 
-class AtlasProblemModel: ObservableObject, @unchecked Sendable {
+public class AtlasProblemModel: ObservableObject, @unchecked Sendable {
     private static let logger: Logger = Logger(subsystem: "com.zombietron.atlas", category: "AtlasProblemModel")
     internal var currentTime: Time
     private var subscription: AnyCancellable?
 
     private let currentTimeLock: DispatchSemaphore = .init(value: 1)
     
-    init(currentTime: Time) {
+    public init(currentTime: Time) {
         self.currentTime = currentTime
         self.subscription = self.currentTime.objectWillChange.receive(on: RunLoop.main).sink { @Sendable _ in
             Task(priority: .userInitiated) { @MainActor in

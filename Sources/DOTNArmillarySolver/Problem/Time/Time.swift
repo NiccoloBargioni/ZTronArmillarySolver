@@ -1,8 +1,8 @@
 import Foundation
 import SwiftUI
 
-final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecked Sendable {
-    var description: String
+public final class Time: Hashable, CustomStringConvertible, ObservableObject, @unchecked Sendable {
+    public var description: String
     
     let hoursLock: DispatchSemaphore = .init(value: 1)
     let minutesLock: DispatchSemaphore = .init(value: 1)

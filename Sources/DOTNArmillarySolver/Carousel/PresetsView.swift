@@ -1,14 +1,14 @@
 import SwiftUI
 import ZTronCarouselCore
 
-internal struct PresetsCarousel: UIViewControllerRepresentable {
+public struct PresetsCarousel: UIViewControllerRepresentable {
     private var onPageChanged: (String, Int) -> Void
     
     public init(onPageChanged: @escaping (String, Int) -> Void) {
         self.onPageChanged = onPageChanged
     }
     
-    func makeUIViewController(context: Context) -> UINavigationController {
+    public func makeUIViewController(context: Context) -> UINavigationController {
         let navController = UINavigationController(
             rootViewController: Carousel16_9Page(
                     with: BasicMediaFactory(),
@@ -29,8 +29,6 @@ internal struct PresetsCarousel: UIViewControllerRepresentable {
         return navController
     }
     
-    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
-    }
-    
-    typealias UIViewControllerType = UINavigationController    
+    public func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
+    }    
 }

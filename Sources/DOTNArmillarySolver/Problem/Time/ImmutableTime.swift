@@ -1,6 +1,6 @@
 import Foundation
 
-final class ImmutableTime: AnyTime, Sendable {
+public final class ImmutableTime: AnyTime, Sendable {
     private let hour: Int
     private let minute: Int
     private let second: Int
