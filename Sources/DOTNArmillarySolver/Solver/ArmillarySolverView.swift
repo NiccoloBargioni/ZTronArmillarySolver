@@ -185,7 +185,7 @@ public struct DOTNSolverView: View {
 
 
 @MainActor public struct DOTNPresetsCarouselView: View {
-    @State private var preset: [Int] = [0, 0, 0]
+    @State private var preset: [Int] = [5, -5, 6]
 
     public init() {  }
     
